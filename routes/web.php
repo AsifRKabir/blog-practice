@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [PagesController::class, 'index'])->name('home');
+Route::get('/blogs/1', [PagesController::class, 'blog'])->name('blog');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <h4 class="tomato-highlight">ASIF'S BLOG</h4>
+                    <h4 class="text-danger">ASIF'S BLOG</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -29,11 +29,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse ms-auto" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        <a class="nav-link" href="#">Home</a>
                         <a class="nav-link" href="#blogs">Blogs</a>
-                        <a class="nav-link" href="#">About</a>
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="">
+                            <div class="btn btn-danger">Login</div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -41,13 +44,16 @@
 
         {{-- Hero Section --}}
 
-        <section
+        <section id="hero"
             class="hero-section mx-auto text-center mt-5 d-flex justify-content-center align-items-center flex-column">
 
             <h1 class="text-light text-uppercase">Welcome to my blog!</h1>
             <h5 class="text-light w-50 my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi
                 asperiores ad dolorum magnam quaerat eos unde exercitationem! Repudiandae, voluptates?</h5>
-            <button type="button" class="btn btn-danger">Read Posts <i class="fa-solid fa-arrow-down ms-4"></i></button>
+            <a href="#blogs">
+                <button type="button" class="btn btn-danger">Read Posts <i
+                        class="fa-solid fa-arrow-down ms-4"></i></button>
+            </a>
 
         </section>
 
@@ -59,16 +65,15 @@
 
         <section id="blogs" class="blogs text-light mt-5">
 
-            <h2 class="text-center mb-5">Blogs</h2>
+            <h2 class="text-center mb-5 red-bg">Blogs</h2>
 
             <div class="row text-dark d-flex justify-content-center m-0">
                 <div class="col-lg-3 col-sm-6 d-flex justify-content-center m-4">
                     <div class="card border-0 rounded" style="width: 20rem;">
                         <img src="{{ url('assets/img/food/1.jpg') }}" class="card-img-top" alt="...">
                         <div class="card-body blog-card">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h5 class="card-title">Food Name</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos consectetur libero eaque deleniti dolorum. A.</p>
                             <a href="#" class="btn btn-danger">Read More</a>
                         </div>
                     </div>
@@ -77,9 +82,52 @@
 
         </section>
 
+        {{-- About --}}
+
+        <section id="about" class="about text-light mt-5 container">
+
+            <h2 class="text-center mb-5 red-bg">About Us</h2>
+
+            <div class="d-flex justify-content-around align-items-center my-5">
+                <div class="w-50 d-flex justify-content-start flex-column">
+                    <h1>Asif Rezwan Kabir</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, in.</p>
+                </div>
+                <div class="w-50 d-flex justify-content-end">
+                    <img class="w-50 img-fluid rounded-circle" src="{{ url('assets/img/person.jpg') }}" alt="">
+                </div>
+            </div>
+
+        </section>
+
+        {{-- Contact --}}
+
+        <section id="contact" class="contact text-light mt-5 container">
+
+            <h2 class="text-center mb-5 red-bg">Contact</h2>
+
+            <form class="container" action="">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <button class="btn btn-danger d-block mx-auto mt-4">Submit</button>
+            </form>
+
+        </section>
+
     </main>
 
-    <footer>
+    <footer class="mt-5">
+
+        <small>
+            <p class="text-center text-light">All Rights Reserved | Asif Rezwan Kabir © 2022</p>
+        </small>
 
     </footer>
 

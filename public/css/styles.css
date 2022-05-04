@@ -6,18 +6,39 @@
     box-sizing: border-box;
 }
 
+.red-bg{
+    background-color: #dc3545;
+    margin: auto;
+    width: 20%;
+    border-radius: 5px;
+}
+
 body{
     font-family: 'Poppins', sans-serif;
 }
 
-.tomato-highlight{
-    color: tomato;
+nav a:hover{
+    color: #dc3545 !important;
 }
 
 .hero-section{
     height: 85vh;
 }
 
-.blog-card{
-    background-color: rgba(255, 164, 164, 0.202);
+.about{
+    margin-top: 200px !important;
+}
+
+.about h2{
+    margin-bottom: 100px !important;
+}
+
+.blog-section img{
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.blog-section p{
+    font-size: 1.2em;
 }
