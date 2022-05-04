@@ -34,7 +34,7 @@
                         <a class="nav-link" href="#blogs">Blogs</a>
                         <a class="nav-link" href="#about">About</a>
                         <a class="nav-link" href="#contact">Contact</a>
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ route('login') }}">
                             <div class="btn btn-danger">Login</div>
                         </a>
                     </div>
@@ -47,9 +47,8 @@
         <section id="hero"
             class="hero-section mx-auto text-center mt-5 d-flex justify-content-center align-items-center flex-column">
 
-            <h1 class="text-light text-uppercase">Welcome to my blog!</h1>
-            <h5 class="text-light w-50 my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi
-                asperiores ad dolorum magnam quaerat eos unde exercitationem! Repudiandae, voluptates?</h5>
+            <h1 class="text-light text-uppercase">{{ $main->title }}</h1>
+            <h5 class="text-light w-50 my-4">{{ $main->sub_title }}</h5>
             <a href="#blogs">
                 <button type="button" class="btn btn-danger">Read Posts <i
                         class="fa-solid fa-arrow-down ms-4"></i></button>
@@ -63,12 +62,29 @@
 
         {{-- Blogs --}}
 
-        <section id="blogs" class="blogs text-light mt-5">
+        <section id="blogs" class="blogs text-light mt-5 pt-3">
 
             <h2 class="text-center mb-5 red-bg">Blogs</h2>
 
             <div class="row text-dark d-flex justify-content-center m-0">
-                <div class="col-lg-3 col-sm-6 d-flex justify-content-center m-4">
+                @if (count($blogs) > 0)
+                    @foreach ($blogs as $blog)
+                        <div class="col-lg-3 col-sm-6 d-flex justify-content-center m-4">
+                            <div class="card border-0 rounded" style="width: 20rem;">
+                                <img src="{{ url($blog->image) }}" class="card-img-top" alt="...">
+                                <div class="card-body blog-card">
+                                    <h5 class="card-title">{{ $blog->title }}</h5>
+                                    <p class="card-text">{{ $blog->sub_title }}</p>
+                                    {{-- <a href="{{ route('blog', $blog->id) }}" class="btn btn-danger">Read More</a> --}}
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <a href="{{ route('blog', $blog->id) }}" class="btn btn-danger">Read More</a>
+                                  </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+                {{-- <div class="col-lg-3 col-sm-6 d-flex justify-content-center m-4">
                     <div class="card border-0 rounded" style="width: 20rem;">
                         <img src="{{ url('assets/img/food/1.jpg') }}" class="card-img-top" alt="...">
                         <div class="card-body blog-card">
@@ -77,14 +93,14 @@
                             <a href="#" class="btn btn-danger">Read More</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </section>
 
         {{-- About --}}
 
-        <section id="about" class="about text-light mt-5 container">
+        <section id="about" class="about text-light mt-5 container pt-3">
 
             <h2 class="text-center mb-5 red-bg">About Us</h2>
 
@@ -102,7 +118,7 @@
 
         {{-- Contact --}}
 
-        <section id="contact" class="contact text-light mt-5 container">
+        <section id="contact" class="contact text-light mt-5 container pt-3">
 
             <h2 class="text-center mb-5 red-bg">Contact</h2>
 

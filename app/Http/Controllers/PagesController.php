@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Main;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function index()
     {
-        return view('pages.home.index');
+        $main = Main::first();
+        $blogs = Blog::all();
+        return view('pages.home.index', compact('main', 'blogs'));
     }
 
-    public function blog()
+    public function blog($id)
     {
-        return view('pages.home.blog');
+        $blog = Blog::find($id);
+        return view('pages.home.blog', compact('blog'));
     }
 }
